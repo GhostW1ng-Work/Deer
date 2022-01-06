@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private Vector2 _direction;
     [SerializeField] private ParticleSystem _particle;
+    [SerializeField] private AudioClip _audio;
+    [SerializeField] private float _audioVolume;
+    [SerializeField] private Vector3 _audioPosition;
 
     private void Update()
     {
@@ -24,7 +27,8 @@ public class Enemy : MonoBehaviour
         {
             player.ApplyDamage(_damage);
         }
-        
+
+        AudioSource.PlayClipAtPoint(_audio, _audioPosition, _audioVolume);
         Die();
     }
 

@@ -102,6 +102,9 @@ MonoBehaviour:
   _damage: 1
   _direction: {x: 0, y: -1}
   _particle: {fileID: 19800008, guid: 84b9404521ba94049b96da31e88db549, type: 3}
+  _audio: {fileID: 8300000, guid: 85735d16270a35a4eb643741ed3b40b3, type: 3}
+  _audioVolume: 0.5
+  _audioPosition: {x: 0, y: 0, z: -10}
 --- !u!70 &2036404258
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

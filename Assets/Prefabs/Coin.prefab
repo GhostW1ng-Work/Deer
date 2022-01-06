@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinParticle: {fileID: 198405478074982118, guid: 4adffb0018aeda44e9263f901167af1f, type: 3}
   _animator: {fileID: -4167715629460378061}
+  _audio: {fileID: 8300000, guid: 3a6b0872b6cb37b4098fa44d3cbb18c6, type: 3}
+  _audioVolume: 1
+  _audioPosition: {x: 0, y: 0, z: -10}
 --- !u!58 &-2490364784076308637
 CircleCollider2D:
   m_ObjectHideFlags: 0

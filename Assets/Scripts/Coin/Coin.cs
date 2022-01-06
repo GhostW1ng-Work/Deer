@@ -8,7 +8,10 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private ParticleSystem _coinParticle;
     [SerializeField] private Animator _animator;
-
+    [SerializeField] private AudioClip _audio;
+    [SerializeField] private float _audioVolume;
+    [SerializeField] private Vector3 _audioPosition;
+ 
     private float _remainingTime = 10;
 
     private void Update()
@@ -19,8 +22,7 @@ public class Coin : MonoBehaviour
         
         if (_remainingTime <= 0)
         {
-
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -30,6 +32,15 @@ public class Coin : MonoBehaviour
         {
             Instantiate(_coinParticle, gameObject.transform.position, Quaternion.identity);
             _coinParticle.Play();
+            AudioSource.PlayClipAtPoint(_audio, _audioPosition, _audioVolume);
+
+            player.AddCoin();
+            Die();
         }
+    }
+    
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

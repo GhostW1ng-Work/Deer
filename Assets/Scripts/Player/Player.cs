@@ -35,14 +35,14 @@ public class Player : MonoBehaviour
             AddHealth();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out Coin coin))
-        {
-            AddCoin();
-            Destroy(coin.gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.TryGetComponent(out Coin coin))
+    //    {
+    //        AddCoin();
+    //        coin.enabled = false;
+    //    }
+    //}
 
     public void ApplyDamage(int damage)
     {
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             Die();
     }
 
-    private void AddCoin()
+    public void AddCoin()
     {
         _coinsAmount++;
         _currentCoinsAmount++;
