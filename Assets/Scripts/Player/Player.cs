@@ -7,13 +7,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _needCoinsAmount;
-    [SerializeField] private PanelShower _panelShower;
+
 
     private PlayerMovement _playerMovement;
     private int _coinsAmount = 0;
     private int _currentCoinsAmount;
 
     public event UnityAction<int> CoinAdded;
+    public event UnityAction PlayerDied;
     public event UnityAction<int> HealthChanged;
 
     private void Awake()
@@ -35,15 +36,6 @@ public class Player : MonoBehaviour
             AddHealth();
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.TryGetComponent(out Coin coin))
-    //    {
-    //        AddCoin();
-    //        coin.enabled = false;
-    //    }
-    //}
-
     public void ApplyDamage(int damage)
     {
         _health -= damage;
@@ -62,10 +54,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        PlayerDied?.Invoke();
         _playerMovement.enabled = false;
-        StartCoroutine(StopGame());
-        _panelShower.ShowPanel();
-        
     }
 
     private void AddHealth()
@@ -73,11 +63,5 @@ public class Player : MonoBehaviour
         _currentCoinsAmount = 0;
         _health += 1;
         HealthChanged?.Invoke(_health);
-    }
-
-    private IEnumerator StopGame()
-    {
-        yield return new WaitForSeconds(1);
-        Time.timeScale = 0;
     }
 }
