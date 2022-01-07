@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Speed", Mathf.Abs(_horizontalMove));
         _rigidBody2D.velocity = new Vector2(_horizontalMove, _rigidBody2D.velocity.y);
 
-        if(_horizontalMove > 0 && _isLeft)
+        if (_horizontalMove > 0 && _isLeft)
         {
             Flip();
         }

@@ -17,6 +17,7 @@ public class GameOverScreen : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = 0;
+        _canvasGroup.interactable = false;
     }
 
     private void OnEnable()
@@ -37,6 +38,7 @@ public class GameOverScreen : MonoBehaviour
     {
         StartCoroutine(StopGame());
         _canvasGroup.alpha = 1;
+        _canvasGroup.interactable = true;
     }
 
     private void OnMainMenuButtonClick()

@@ -54,8 +54,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        PlayerDied?.Invoke();
         _playerMovement.enabled = false;
+        PlayerDied?.Invoke();
     }
 
     private void AddHealth()
